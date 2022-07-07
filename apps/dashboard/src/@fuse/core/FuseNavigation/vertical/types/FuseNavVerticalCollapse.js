@@ -53,7 +53,10 @@ function isUrlInChildren(parent, url) {
       }
     }
 
-    if (parent.children[i].url === url || url.includes(parent.children[i].url)) {
+    if (
+      parent.children[i].url === url ||
+      url.includes(parent.children[i].url)
+    ) {
       return true;
     }
   }
@@ -62,7 +65,9 @@ function isUrlInChildren(parent, url) {
 }
 
 function FuseNavVerticalCollapse(props) {
-  const [open, setOpen] = useState(() => needsToBeOpened(props.location, props.item));
+  const [open, setOpen] = useState(() =>
+    needsToBeOpened(props.location, props.item),
+  );
   const { item, nestedLevel, onItemClick } = props;
   const classes = useStyles({
     itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12,
@@ -91,7 +96,10 @@ function FuseNavVerticalCollapse(props) {
         >
           {item.icon && (
             <Icon
-              className={clsx('fuse-list-item-icon text-20 flex-shrink-0', item.iconClass)}
+              className={clsx(
+                'fuse-list-item-icon text-20 flex-shrink-0',
+                item.iconClass,
+              )}
               color="action"
             >
               {item.icon}
@@ -144,7 +152,7 @@ function FuseNavVerticalCollapse(props) {
       nestedLevel,
       onItemClick,
       open,
-    ]
+    ],
   );
 }
 

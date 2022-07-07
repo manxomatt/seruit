@@ -99,6 +99,7 @@ const registerSlice = createSlice({
   name: 'auth/register',
   initialState,
   reducers: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     registerSuccess: (state, action) => {
       state.success = true;
       state.errors = [];

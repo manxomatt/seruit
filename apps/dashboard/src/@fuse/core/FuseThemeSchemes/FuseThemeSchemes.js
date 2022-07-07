@@ -21,15 +21,19 @@ function SchemePreview({ theme, className, id, onSelect }) {
     : theme.palette.secondary.main;
   const secondaryColorContrast = _theme.palette.getContrastText(secondaryColor);
   const backgroundColor = theme.palette.background.default;
-  const backgroundColorContrast = _theme.palette.getContrastText(theme.palette.background.default);
+  const backgroundColorContrast = _theme.palette.getContrastText(
+    theme.palette.background.default,
+  );
   const paperColor = theme.palette.background.paper;
-  const paperColorContrast = _theme.palette.getContrastText(theme.palette.background.paper);
+  const paperColorContrast = _theme.palette.getContrastText(
+    theme.palette.background.paper,
+  );
 
   return (
     <div className={clsx(className, 'mb-8')}>
       <button
         className={clsx(
-          'w-full text-left rounded-6 relative font-500 shadow hover:shadow-md transition-shadow cursor-pointer overflow-hidden'
+          'w-full text-left rounded-6 relative font-500 shadow hover:shadow-md transition-shadow cursor-pointer overflow-hidden',
         )}
         style={{
           backgroundColor,
@@ -73,7 +77,9 @@ function SchemePreview({ theme, className, id, onSelect }) {
           <span className="text-12 opacity-75">Background</span>
         </div>
       </button>
-      <Typography className="font-semibold w-full text-center mt-12">{id}</Typography>
+      <Typography className="font-semibold w-full text-center mt-12">
+        {id}
+      </Typography>
     </div>
   );
 }
@@ -108,10 +114,17 @@ function FuseThemeSchemes(props) {
     <div className={classes.root}>
       <div className="flex flex-wrap w-full -mx-8">
         {Object.entries(themes)
-          .filter(([key, val]) => !(key === 'mainThemeDark' || key === 'mainThemeLight'))
+          .filter(
+            ([key, val]) =>
+              !(key === 'mainThemeDark' || key === 'mainThemeLight'),
+          )
           .map(([key, val]) => (
             <div key={key} className="w-1/2 p-8">
-              <SchemePreview id={key} theme={val} onSelect={handleSchemeSelect} />
+              <SchemePreview
+                id={key}
+                theme={val}
+                onSelect={handleSchemeSelect}
+              />
             </div>
           ))}
       </div>

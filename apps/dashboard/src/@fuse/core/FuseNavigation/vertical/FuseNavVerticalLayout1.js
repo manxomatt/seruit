@@ -9,11 +9,15 @@ const useStyles = makeStyles((theme) => ({
     '& .fuse-list-item': {
       '&:hover': {
         backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)',
+          theme.palette.type === 'dark'
+            ? 'rgba(255, 255, 255, 0.05)'
+            : 'rgba(0,0,0,.04)',
       },
       '&:focus:not(.active)': {
         backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
+          theme.palette.type === 'dark'
+            ? 'rgba(255, 255, 255, 0.06)'
+            : 'rgba(0,0,0,.05)',
       },
     },
     '&.active-square-list': {
@@ -48,7 +52,7 @@ function FuseNavVerticalLayout1(props) {
         classes.navigation,
         `active-${active}-list`,
         dense && 'dense',
-        className
+        className,
       )}
     >
       {navigation.map((_item) => (

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
       {
         easing: theme.transitions.easing.easeInOut,
         duration: theme.transitions.duration.shorter,
-      }
+      },
     ),
     '&:hover': {
       width: 52,
@@ -70,8 +70,14 @@ function NavbarToggleFab(props) {
       placement={config.navbar.position === 'left' ? 'right' : 'left'}
     >
       <Fab
-        className={clsx(classes.mobileButton, config.navbar.position, props.className)}
-        onClick={(ev) => dispatch(mdDown ? navbarToggleMobile() : navbarToggle())}
+        className={clsx(
+          classes.mobileButton,
+          config.navbar.position,
+          props.className,
+        )}
+        onClick={(ev) =>
+          dispatch(mdDown ? navbarToggleMobile() : navbarToggle())
+        }
         disableRipple
       >
         <Icon className={classes.buttonIcon} color="action">

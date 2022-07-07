@@ -7,7 +7,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { hideMessage, showMessage } from 'app/store/fuse/messageSlice';
 
-import { setUserDataFirebase, setUserDataAuth0, setUserData, logoutUser } from './store/userSlice';
+import {
+  setUserDataFirebase,
+  setUserDataAuth0,
+  setUserData,
+  logoutUser,
+} from './store/userSlice';
 
 class Auth extends Component {
   state = {
@@ -121,7 +126,7 @@ class Auth extends Component {
             },
             (error) => {
               resolve();
-            }
+            },
           );
         } else {
           resolve();
@@ -132,7 +137,11 @@ class Auth extends Component {
     });
 
   render() {
-    return this.state.waitAuthCheck ? <FuseSplashScreen /> : <>{this.props.children}</>;
+    return this.state.waitAuthCheck ? (
+      <FuseSplashScreen />
+    ) : (
+      <>{this.props.children}</>
+    );
   }
 }
 
@@ -146,7 +155,7 @@ function mapDispatchToProps(dispatch) {
       showMessage,
       hideMessage,
     },
-    dispatch
+    dispatch,
   );
 }
 

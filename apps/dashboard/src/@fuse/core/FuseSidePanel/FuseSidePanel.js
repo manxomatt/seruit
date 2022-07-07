@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import Fab from '@material-ui/core/Fab';
 import Hidden from '@material-ui/core/Hidden';
@@ -80,11 +81,17 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
         borderRadius: 38,
         transition: theme.transitions.create(
-          ['background-color', 'border-radius', 'width', 'min-width', 'padding'],
+          [
+            'background-color',
+            'border-radius',
+            'width',
+            'min-width',
+            'padding',
+          ],
           {
             easing: theme.transitions.easing.easeInOut,
             duration: theme.transitions.duration.shorter,
-          }
+          },
         ),
         width: 24,
         '&:hover': {
@@ -142,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
       {
         easing: theme.transitions.easing.easeInOut,
         duration: theme.transitions.duration.shorter,
-      }
+      },
     ),
     '&:hover': {
       width: 52,
@@ -191,7 +198,7 @@ function FuseSidePanel(props) {
             props.className,
             opened ? 'opened' : 'closed',
             props.position,
-            'shadow-lg'
+            'shadow-lg',
           )}
           square
         >
@@ -204,7 +211,11 @@ function FuseSidePanel(props) {
               title="Toggle side panel"
               placement={props.position === 'left' ? 'right' : 'right'}
             >
-              <IconButton className={classes.button} onClick={toggleOpened} disableRipple>
+              <IconButton
+                className={classes.button}
+                onClick={toggleOpened}
+                disableRipple
+              >
                 <Icon className={classes.buttonIcon}>keyboard_arrow_left</Icon>
               </IconButton>
             </Tooltip>
@@ -227,7 +238,10 @@ function FuseSidePanel(props) {
           </FuseScrollbars>
         </SwipeableDrawer>
 
-        <Tooltip title="Hide side panel" placement={props.position === 'left' ? 'right' : 'right'}>
+        <Tooltip
+          title="Hide side panel"
+          placement={props.position === 'left' ? 'right' : 'right'}
+        >
           <Fab
             className={clsx(classes.mobileButton, props.position)}
             onClick={toggleMobileDrawer}

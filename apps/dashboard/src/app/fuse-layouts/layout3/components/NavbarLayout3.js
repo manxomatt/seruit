@@ -15,7 +15,11 @@ function NavbarLayout3(props) {
 
   return (
     <div className={clsx('w-full shadow-md', classes.root, props.className)}>
-      <div className={clsx('flex flex-auto items-center w-full h-full container px-16 lg:px-24')}>
+      <div
+        className={clsx(
+          'flex flex-auto items-center w-full h-full container px-16 lg:px-24',
+        )}
+      >
         <FuseScrollbars className="flex h-full items-center">
           <Navigation className="w-full" layout="horizontal" dense />
         </FuseScrollbars>

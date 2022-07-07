@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -58,7 +59,7 @@ function NavbarStyle1(props) {
             classes.navbarPaper,
             config.navbar.position,
             navbar.open ? 'opened' : 'closed',
-            'flex-col flex-auto sticky top-0 overflow-hidden h-screen flex-shrink-0 z-20 shadow-5'
+            'flex-col flex-auto sticky top-0 overflow-hidden h-screen flex-shrink-0 z-20 shadow-5',
           )}
         >
           <NavbarStyle1Content />

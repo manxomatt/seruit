@@ -29,7 +29,11 @@ function ToolbarLayout2(props) {
     <ThemeProvider theme={toolbarTheme}>
       <AppBar
         id="fuse-toolbar"
-        className={clsx(classes.root, 'flex relative z-20 shadow-md', props.className)}
+        className={clsx(
+          classes.root,
+          'flex relative z-20 shadow-md',
+          props.className,
+        )}
         color="default"
         style={{ backgroundColor: toolbarTheme.palette.background.paper }}
       >

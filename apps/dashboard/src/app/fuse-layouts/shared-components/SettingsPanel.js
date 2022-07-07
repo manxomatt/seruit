@@ -15,7 +15,13 @@ import { useSwipeable } from 'react-swipeable';
 
 const Transition = forwardRef(function Transition(props, ref) {
   const theme = useTheme();
-  return <Slide direction={theme.direction === 'ltr' ? 'left' : 'right'} ref={ref} {...props} />;
+  return (
+    <Slide
+      direction={theme.direction === 'ltr' ? 'left' : 'right'}
+      ref={ref}
+      {...props}
+    />
+  );
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -143,7 +149,10 @@ function SettingsPanel() {
         {...settingsHandlers}
       >
         <FuseScrollbars className="p-16 sm:p-32">
-          <IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
+          <IconButton
+            className="fixed top-0 ltr:right-0 rtl:left-0 z-10"
+            onClick={handleClose}
+          >
             <Icon>close</Icon>
           </IconButton>
 
@@ -169,7 +178,10 @@ function SettingsPanel() {
         {...shemesHandlers}
       >
         <FuseScrollbars className="p-16 sm:p-32">
-          <IconButton className="fixed top-0 ltr:right-0 rtl:left-0 z-10" onClick={handleClose}>
+          <IconButton
+            className="fixed top-0 ltr:right-0 rtl:left-0 z-10"
+            onClick={handleClose}
+          >
             <Icon>close</Icon>
           </IconButton>
 
@@ -177,10 +189,13 @@ function SettingsPanel() {
             Theme Color Schemes
           </Typography>
 
-          <Typography className="mb-24 text-12 italic text-justify" color="textSecondary">
-            * Selected color scheme will be applied to all theme layout elements (navbar, toolbar,
-            etc.). You can also select a different color scheme for each layout element at theme
-            settings.
+          <Typography
+            className="mb-24 text-12 italic text-justify"
+            color="textSecondary"
+          >
+            * Selected color scheme will be applied to all theme layout elements
+            (navbar, toolbar, etc.). You can also select a different color
+            scheme for each layout element at theme settings.
           </Typography>
 
           <FuseThemeSchemes />

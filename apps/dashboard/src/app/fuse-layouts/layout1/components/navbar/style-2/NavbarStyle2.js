@@ -1,7 +1,11 @@
 import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import { navbarCloseFolded, navbarOpenFolded, navbarCloseMobile } from 'app/store/fuse/navbarSlice';
+import {
+  navbarCloseFolded,
+  navbarOpenFolded,
+  navbarCloseMobile,
+} from 'app/store/fuse/navbarSlice';
 import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import NavbarStyle2Content from './NavbarStyle2Content';
@@ -120,7 +124,7 @@ function NavbarStyle2(props) {
         className={clsx(
           classes.wrapper,
           folded && classes.wrapperFolded,
-          'sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
+          'sticky top-0 h-screen flex-shrink-0 z-20 shadow-5',
         )}
       >
         <Hidden mdDown>
@@ -131,10 +135,12 @@ function NavbarStyle2(props) {
               folded && classes.folded,
               foldedAndOpened && classes.foldedAndOpened,
               foldedAndClosed && classes.foldedAndClosed,
-              'flex-col flex-auto'
+              'flex-col flex-auto',
             )}
             onMouseEnter={() => foldedAndClosed && dispatch(navbarOpenFolded())}
-            onMouseLeave={() => foldedAndOpened && dispatch(navbarCloseFolded())}
+            onMouseLeave={() =>
+              foldedAndOpened && dispatch(navbarCloseFolded())
+            }
           >
             <NavbarStyle2Content className={classes.navbarContent} />
           </div>
@@ -149,6 +155,7 @@ function NavbarStyle2(props) {
               paper: clsx(classes.navbar, 'flex-col flex-auto h-full'),
             }}
             onClose={() => dispatch(navbarCloseMobile())}
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
             onOpen={() => {}}
             disableSwipeToOpen
             ModalProps={{

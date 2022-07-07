@@ -52,6 +52,7 @@ function NavbarWrapperLayout2(props) {
               paper: clsx(classes.navbarMobile, 'flex-col flex-auto h-full'),
             }}
             onClose={() => dispatch(navbarCloseMobile())}
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
             onOpen={() => {}}
             disableSwipeToOpen
             ModalProps={{

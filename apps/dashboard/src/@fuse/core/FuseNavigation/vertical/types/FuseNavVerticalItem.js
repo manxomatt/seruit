@@ -67,7 +67,10 @@ function FuseNavVerticalItem(props) {
       >
         {item.icon && (
           <Icon
-            className={clsx('fuse-list-item-icon text-20 flex-shrink-0', item.iconClass)}
+            className={clsx(
+              'fuse-list-item-icon text-20 flex-shrink-0',
+              item.iconClass,
+            )}
             color="action"
           >
             {item.icon}
@@ -77,13 +80,15 @@ function FuseNavVerticalItem(props) {
         <ListItemText
           className="fuse-list-item-text"
           primary={item.title}
-          classes={{ primary: 'text-13 font-medium fuse-list-item-text-primary' }}
+          classes={{
+            primary: 'text-13 font-medium fuse-list-item-text-primary',
+          }}
         />
 
         {item.badge && <FuseNavBadge badge={item.badge} />}
       </ListItem>
     ),
-    [classes.item, item, onItemClick]
+    [classes.item, item, onItemClick],
   );
 }
 

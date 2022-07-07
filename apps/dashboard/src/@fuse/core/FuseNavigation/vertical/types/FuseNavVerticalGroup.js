@@ -41,14 +41,16 @@ function FuseNavVerticalGroup(props) {
           className={clsx(
             classes.item,
             'fuse-list-subheader flex items-center',
-            !item.url && 'cursor-default'
+            !item.url && 'cursor-default',
           )}
           onClick={() => onItemClick && onItemClick(item)}
           component={item.url ? NavLinkAdapter : 'li'}
           to={item.url}
           role="button"
         >
-          <span className="fuse-list-subheader-text uppercase text-12">{item.title}</span>
+          <span className="fuse-list-subheader-text uppercase text-12">
+            {item.title}
+          </span>
         </ListSubheader>
 
         {item.children && (
@@ -66,7 +68,7 @@ function FuseNavVerticalGroup(props) {
         )}
       </>
     ),
-    [classes.item, item, nestedLevel, onItemClick]
+    [classes.item, item, nestedLevel, onItemClick],
   );
 }
 

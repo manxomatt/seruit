@@ -23,8 +23,12 @@ function NavbarToggleButton(props) {
         } else if (config.navbar.style === 'style-2') {
           dispatch(
             setDefaultSettings(
-              _.set({}, 'layout.config.navbar.folded', !settings.layout.config.navbar.folded)
-            )
+              _.set(
+                {},
+                'layout.config.navbar.folded',
+                !settings.layout.config.navbar.folded,
+              ),
+            ),
           );
         } else {
           dispatch(navbarToggle());

@@ -83,7 +83,7 @@ function FuseNavVerticalTab(props) {
             `type-${item.type}`,
             dense && 'dense',
             selectedId === item.id && 'active',
-            'fuse-list-item flex flex-col items-center justify-center p-12'
+            'fuse-list-item flex flex-col items-center justify-center p-12',
           )}
           onClick={() => onItemClick && onItemClick(item)}
           exact={item.exact}
@@ -93,13 +93,18 @@ function FuseNavVerticalTab(props) {
               <div className="w-32 h-32 min-h-32 flex items-center justify-center relative">
                 {item.icon ? (
                   <Icon
-                    className={clsx('fuse-list-item-icon text-24', item.iconClass)}
+                    className={clsx(
+                      'fuse-list-item-icon text-24',
+                      item.iconClass,
+                    )}
                     color="action"
                   >
                     {item.icon}
                   </Icon>
                 ) : (
-                  item.title && <div className="font-bold text-16">{item.title[0]}</div>
+                  item.title && (
+                    <div className="font-bold text-16">{item.title[0]}</div>
+                  )
                 )}
                 {item.badge && (
                   <FuseNavBadge
@@ -114,13 +119,18 @@ function FuseNavVerticalTab(props) {
               <div className="w-32 h-32 min-h-32 flex items-center justify-center relative mb-8">
                 {item.icon ? (
                   <Icon
-                    className={clsx('fuse-list-item-icon text-32', item.iconClass)}
+                    className={clsx(
+                      'fuse-list-item-icon text-32',
+                      item.iconClass,
+                    )}
                     color="action"
                   >
                     {item.icon}
                   </Icon>
                 ) : (
-                  item.title && <div className="font-bold text-20">{item.title[0]}</div>
+                  item.title && (
+                    <div className="font-bold text-20">{item.title[0]}</div>
+                  )
                 )}
                 {item.badge && (
                   <FuseNavBadge
@@ -134,7 +144,8 @@ function FuseNavVerticalTab(props) {
                 className="fuse-list-item-text flex-grow-0 w-full m-0"
                 primary={item.title}
                 classes={{
-                  primary: 'text-12 font-medium fuse-list-item-text-primary truncate text-center',
+                  primary:
+                    'text-12 font-medium fuse-list-item-text-primary truncate text-center',
                 }}
               />
             </>
@@ -155,7 +166,7 @@ function FuseNavVerticalTab(props) {
           ))}
       </>
     ),
-    [classes.item, firstLevel, item, onItemClick, dense, selectedId]
+    [classes.item, firstLevel, item, onItemClick, dense, selectedId],
   );
 }
 

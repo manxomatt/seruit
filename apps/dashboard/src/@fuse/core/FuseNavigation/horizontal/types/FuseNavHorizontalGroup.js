@@ -60,7 +60,10 @@ function isUrlInChildren(parent, url) {
       }
     }
 
-    if (parent.children[i].url === url || url.includes(parent.children[i].url)) {
+    if (
+      parent.children[i].url === url ||
+      url.includes(parent.children[i].url)
+    ) {
       return true;
     }
   }
@@ -82,7 +85,8 @@ function FuseNavHorizontalGroup(props) {
     let popperPlacement = 'left';
 
     if (nestedLevel === 0) {
-      popperPlacement = theme.direction === 'ltr' ? 'bottom-start' : 'bottom-end';
+      popperPlacement =
+        theme.direction === 'ltr' ? 'bottom-start' : 'bottom-end';
     } else {
       popperPlacement = theme.direction === 'ltr' ? 'right' : 'left';
     }
@@ -99,7 +103,7 @@ function FuseNavHorizontalGroup(props) {
                   classes.root,
                   'relative',
                   `level-${nestedLevel}`,
-                  isUrlInChildren(item, props.location.pathname) && 'active'
+                  isUrlInChildren(item, props.location.pathname) && 'active',
                 )}
                 onMouseEnter={() => handleToggle(true)}
                 onMouseLeave={() => handleToggle(false)}
@@ -112,7 +116,10 @@ function FuseNavHorizontalGroup(props) {
                 {item.icon && (
                   <Icon
                     color="action"
-                    className={clsx('fuse-list-item-icon text-16 flex-shrink-0', item.iconClass)}
+                    className={clsx(
+                      'fuse-list-item-icon text-16 flex-shrink-0',
+                      item.iconClass,
+                    )}
                   >
                     {item.icon}
                   </Icon>
@@ -131,7 +138,9 @@ function FuseNavHorizontalGroup(props) {
                     color="inherit"
                   >
                     <Icon className="text-16 arrow-icon">
-                      {theme.direction === 'ltr' ? 'keyboard_arrow_right' : 'keyboard_arrow_left'}
+                      {theme.direction === 'ltr'
+                        ? 'keyboard_arrow_right'
+                        : 'keyboard_arrow_left'}
                     </Icon>
                   </IconButton>
                 )}
@@ -140,7 +149,11 @@ function FuseNavHorizontalGroup(props) {
           )}
         </Reference>
         {ReactDOM.createPortal(
-          <Popper placement={popperPlacement} eventsEnabled={opened} positionFixed>
+          <Popper
+            placement={popperPlacement}
+            eventsEnabled={opened}
+            positionFixed
+          >
             {({ ref, style, placement, arrowProps }) =>
               opened && (
                 <div
@@ -150,9 +163,15 @@ function FuseNavHorizontalGroup(props) {
                     zIndex: 999 + nestedLevel,
                   }}
                   data-placement={placement}
-                  className={clsx(classes.popper, { [classes.popperClose]: !opened })}
+                  className={clsx(classes.popper, {
+                    [classes.popperClose]: !opened,
+                  })}
                 >
-                  <Grow in={opened} id="menu-fuse-list-grow" style={{ transformOrigin: '0 0 0' }}>
+                  <Grow
+                    in={opened}
+                    id="menu-fuse-list-grow"
+                    style={{ transformOrigin: '0 0 0' }}
+                  >
                     <Paper
                       className="rounded-8"
                       onMouseEnter={() => handleToggle(true)}
@@ -164,7 +183,7 @@ function FuseNavHorizontalGroup(props) {
                             classes.children,
                             'popper-navigation-list',
                             dense && 'dense',
-                            'px-0'
+                            'px-0',
                           )}
                         >
                           {item.children.map((_item) => (
@@ -184,7 +203,7 @@ function FuseNavHorizontalGroup(props) {
               )
             }
           </Popper>,
-          document.querySelector('#root')
+          document.querySelector('#root'),
         )}
       </Manager>
     );

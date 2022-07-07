@@ -79,6 +79,7 @@ const loginSlice = createSlice({
   name: 'auth/login',
   initialState,
   reducers: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     loginSuccess: (state, action) => {
       state.success = true;
       state.errors = [];

@@ -3,7 +3,8 @@ import { memo, useEffect, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
 
-const useEnhancedEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+const useEnhancedEffect =
+  typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 function FuseTheme(props) {
   const direction = useSelector(({ fuse }) => fuse.settings.defaults.direction);

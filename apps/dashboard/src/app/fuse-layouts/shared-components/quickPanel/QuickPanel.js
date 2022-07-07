@@ -25,6 +25,7 @@ function QuickPanel(props) {
       classes={{ paper: classes.root }}
       open={state}
       anchor="right"
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       onOpen={(ev) => {}}
       onClose={(ev) => dispatch(toggleQuickPanel())}
       disableSwipeToOpen

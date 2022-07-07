@@ -47,7 +47,10 @@ function FuseNavHorizontalLink(props) {
       >
         {item.icon && (
           <Icon
-            className={clsx('fuse-list-item-icon text-16 flex-shrink-0', item.iconClass)}
+            className={clsx(
+              'fuse-list-item-icon text-16 flex-shrink-0',
+              item.iconClass,
+            )}
             color="action"
           >
             {item.icon}
@@ -60,10 +63,20 @@ function FuseNavHorizontalLink(props) {
           classes={{ primary: 'text-13 fuse-list-item-text-primary' }}
         />
 
-        {item.badge && <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />}
+        {item.badge && (
+          <FuseNavBadge className="ltr:ml-8 rtl:mr-8" badge={item.badge} />
+        )}
       </ListItem>
     ),
-    [classes.root, item.badge, item.icon, item.iconClass, item.target, item.title, item.url]
+    [
+      classes.root,
+      item.badge,
+      item.icon,
+      item.iconClass,
+      item.target,
+      item.title,
+      item.url,
+    ],
   );
 }
 

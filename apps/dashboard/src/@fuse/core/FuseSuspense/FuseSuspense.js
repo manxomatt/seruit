@@ -6,7 +6,11 @@ import { Suspense } from 'react';
  * React Suspense defaults
  * For to Avoid Repetition
  */ function FuseSuspense(props) {
-  return <Suspense fallback={<FuseLoading {...props.loadingProps} />}>{props.children}</Suspense>;
+  return (
+    <Suspense fallback={<FuseLoading {...props.loadingProps} />}>
+      {props.children}
+    </Suspense>
+  );
 }
 
 FuseSuspense.propTypes = {

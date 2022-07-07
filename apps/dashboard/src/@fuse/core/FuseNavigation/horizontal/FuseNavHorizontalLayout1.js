@@ -8,11 +8,15 @@ const useStyles = makeStyles((theme) => ({
     '& .fuse-list-item': {
       '&:hover': {
         backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0,0,0,.04)',
+          theme.palette.type === 'dark'
+            ? 'rgba(255, 255, 255, 0.05)'
+            : 'rgba(0,0,0,.04)',
       },
       '&:focus:not(.active)': {
         backgroundColor:
-          theme.palette.type === 'dark' ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0,0,0,.05)',
+          theme.palette.type === 'dark'
+            ? 'rgba(255, 255, 255, 0.06)'
+            : 'rgba(0,0,0,.05)',
       },
       padding: '8px 12px 8px 12px',
       height: 40,
@@ -45,7 +49,7 @@ function FuseNavHorizontalLayout1(props) {
         classes.horizontalNavigation,
         `active-${active}-list`,
         dense && 'dense',
-        className
+        className,
       )}
     >
       {navigation.map((_item) => (

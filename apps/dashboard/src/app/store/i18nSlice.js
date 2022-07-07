@@ -25,7 +25,7 @@ export const changeLanguage = (languageId) => (dispatch, getState) => {
 const i18nSlice = createSlice({
   name: 'i18n',
   initialState: {
-    language: i18n.options.lng,
+    language: 'en', //i18n.options.lng,
   },
   reducers: {
     languageChanged: (state, action) => {

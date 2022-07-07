@@ -25,7 +25,7 @@ const handlerNameByEvent = {
 };
 Object.freeze(handlerNameByEvent);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     overscrollBehavior: 'contain',
   },

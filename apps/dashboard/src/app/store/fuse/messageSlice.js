@@ -23,6 +23,7 @@ const messageSlice = createSlice({
         ...action.payload,
       };
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     hideMessage: (state, action) => {
       state.state = null;
     },

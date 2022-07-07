@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
@@ -35,7 +36,10 @@ function renderInputComponent(inputProps) {
                 inputRef(node);
               },
               classes: {
-                input: clsx(classes.input, 'py-0 px-16 h-40 md:h-48 ltr:pr-48 rtl:pl-48'),
+                input: clsx(
+                  classes.input,
+                  'py-0 px-16 h-40 md:h-48 ltr:pr-48 rtl:pl-48',
+                ),
                 notchedOutline: 'rounded-8',
               },
             }}
@@ -96,7 +100,7 @@ function renderSuggestion(suggestion, { query, isHighlighted }) {
             <strong key={String(index)} style={{ fontWeight: 300 }}>
               {part.text}
             </strong>
-          )
+          ),
         )}
       />
     </MenuItem>
@@ -111,7 +115,8 @@ function getSuggestions(value, data) {
   return inputLength === 0
     ? []
     : data.filter((suggestion) => {
-        const keep = count < 10 && match(suggestion.title, inputValue).length > 0;
+        const keep =
+          count < 10 && match(suggestion.title, inputValue).length > 0;
 
         if (keep) {
           count += 1;
@@ -284,7 +289,8 @@ function FuseSearch(props) {
   function handleClickAway(event) {
     return (
       state.opened &&
-      (!suggestionsNode.current || !suggestionsNode.current.contains(event.target)) &&
+      (!suggestionsNode.current ||
+        !suggestionsNode.current.contains(event.target)) &&
       hideSearch()
     );
   }
@@ -303,7 +309,10 @@ function FuseSearch(props) {
   switch (props.variant) {
     case 'basic': {
       return (
-        <div className={clsx('flex items-center w-full', props.className)} ref={popperNode}>
+        <div
+          className={clsx('flex items-center w-full', props.className)}
+          ref={popperNode}
+        >
           <Autosuggest
             {...autosuggestProps}
             inputProps={{
@@ -334,11 +343,17 @@ function FuseSearch(props) {
                   <Paper
                     className="shadow-lg rounded-8 overflow-hidden"
                     {...options.containerProps}
-                    style={{ width: popperNode.current ? popperNode.current.clientWidth : null }}
+                    style={{
+                      width: popperNode.current
+                        ? popperNode.current.clientWidth
+                        : null,
+                    }}
                   >
                     {options.children}
                     {state.noSuggestions && (
-                      <Typography className="px-16 py-12">{props.noResults}</Typography>
+                      <Typography className="px-16 py-12">
+                        {props.noResults}
+                      </Typography>
                     )}
                   </Paper>
                 </div>
@@ -365,8 +380,14 @@ function FuseSearch(props) {
 
           {state.opened && (
             <ClickAwayListener onClickAway={handleClickAway}>
-              <Paper className="absolute left-0 right-0 top-0 h-full z-9999 shadow-0" square>
-                <div className="flex items-center w-full h-full" ref={popperNode}>
+              <Paper
+                className="absolute left-0 right-0 top-0 h-full z-9999 shadow-0"
+                square
+              >
+                <div
+                  className="flex items-center w-full h-full"
+                  ref={popperNode}
+                >
                   <Autosuggest
                     {...autosuggestProps}
                     inputProps={{
@@ -397,12 +418,16 @@ function FuseSearch(props) {
                             square
                             {...options.containerProps}
                             style={{
-                              width: popperNode.current ? popperNode.current.clientWidth : null,
+                              width: popperNode.current
+                                ? popperNode.current.clientWidth
+                                : null,
                             }}
                           >
                             {options.children}
                             {state.noSuggestions && (
-                              <Typography className="px-16 py-12">{props.noResults}</Typography>
+                              <Typography className="px-16 py-12">
+                                {props.noResults}
+                              </Typography>
                             )}
                           </Paper>
                         </div>

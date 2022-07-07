@@ -44,9 +44,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     '&.folded-disabled': {
-      minWidth: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-      width: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
-      maxWidth: (props) => (props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+      minWidth: (props) =>
+        props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
+      width: (props) =>
+        props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
+      maxWidth: (props) =>
+        props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth,
       '& #fuse-navbar-panel': {
         opacity: '1!important',
         pointerEvents: 'initial!important',
@@ -54,11 +57,15 @@ const useStyles = makeStyles((theme) => ({
       '&.closed': {
         '&.left': {
           marginLeft: (props) =>
-            -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+            -(props.dense
+              ? navbarWidthDense + panelWidth
+              : navbarWidth + panelWidth),
         },
         '&.right': {
           marginRight: (props) =>
-            -(props.dense ? navbarWidthDense + panelWidth : navbarWidth + panelWidth),
+            -(props.dense
+              ? navbarWidthDense + panelWidth
+              : navbarWidth + panelWidth),
         },
       },
     },
@@ -115,7 +122,7 @@ function NavbarStyle3(props) {
             navbar.open ? 'opened' : 'closed',
             props.dense && 'dense',
             !folded && 'folded-disabled',
-            'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5'
+            'flex-col flex-auto sticky top-0 h-screen flex-shrink-0 z-20 shadow-5',
           )}
         >
           <NavbarStyle3Content dense={props.dense} folded={folded} />
@@ -127,13 +134,14 @@ function NavbarStyle3(props) {
           classes={{
             paper: clsx(
               classes.navbarMobile,
-              'flex-col flex-auto h-screen max-w-full w-auto overflow-hidden'
+              'flex-col flex-auto h-screen max-w-full w-auto overflow-hidden',
             ),
           }}
           anchor={config.navbar.position}
           variant="temporary"
           open={navbar.mobileOpen}
           onClose={() => dispatch(navbarCloseMobile())}
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           onOpen={() => {}}
           disableSwipeToOpen
           ModalProps={{

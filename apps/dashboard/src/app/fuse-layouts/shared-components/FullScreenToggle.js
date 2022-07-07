@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import { useLayoutEffect, useEffect, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 
-const useEnhancedEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+const useEnhancedEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 const HeaderFullScreenToggle = (props) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -82,7 +83,10 @@ const HeaderFullScreenToggle = (props) => {
 
   return (
     <Tooltip title="Fullscreen toggle" placement="bottom">
-      <IconButton onClick={toggleFullScreen} className={clsx('w-40 h-40', props.className)}>
+      <IconButton
+        onClick={toggleFullScreen}
+        className={clsx('w-40 h-40', props.className)}
+      >
         <Icon>{isFullScreen ? 'fullscreen_exit' : 'fullscreen'}</Icon>
       </IconButton>
     </Tooltip>

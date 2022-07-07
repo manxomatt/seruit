@@ -25,8 +25,8 @@ function FusePageSimpleSidebar(props, ref) {
           anchor={props.position}
           open={isOpen}
           // eslint-disable-next-line @typescript-eslint/no-empty-function
-          onOpen={(ev) => {}}
-          onClose={(ev) => handleToggleDrawer()}
+          onOpen={() => {}}
+          onClose={() => handleToggleDrawer()}
           disableSwipeToOpen
           classes={{
             root: clsx(classes.sidebarWrapper, props.variant),

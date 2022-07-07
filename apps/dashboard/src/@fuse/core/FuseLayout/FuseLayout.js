@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     'code:not([class*="language-"])': {
       color: theme.palette.secondary.dark,
       backgroundColor:
-        theme.palette.type === 'light' ? 'rgba(255, 255, 255, .9)' : 'rgba(0, 0, 0, .9)',
+        theme.palette.type === 'light'
+          ? 'rgba(255, 255, 255, .9)'
+          : 'rgba(0, 0, 0, .9)',
       padding: '2px 3px',
       borderRadius: 2,
       lineHeight: 1.7,
@@ -54,12 +56,16 @@ const useStyles = makeStyles((theme) => ({
     },
     '::-webkit-scrollbar-thumb': {
       boxShadow: `inset 0 0 0 20px ${
-        theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.24)' : 'rgba(255, 255, 255, 0.24)'
+        theme.palette.type === 'light'
+          ? 'rgba(0, 0, 0, 0.24)'
+          : 'rgba(255, 255, 255, 0.24)'
       }`,
     },
     '::-webkit-scrollbar-thumb:active': {
       boxShadow: `inset 0 0 0 20px ${
-        theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.37)' : 'rgba(255, 255, 255, 0.37)'
+        theme.palette.type === 'light'
+          ? 'rgba(0, 0, 0, 0.37)'
+          : 'rgba(255, 255, 255, 0.37)'
       }`,
     },
     html: {
@@ -124,7 +130,10 @@ function FuseLayout(props) {
 
   // console.warn('::FuseLayout:: rendered');
 
-  const Layout = useMemo(() => FuseLayouts[settings.layout.style], [settings.layout.style]);
+  const Layout = useMemo(
+    () => FuseLayouts[settings.layout.style],
+    [settings.layout.style],
+  );
 
   return _.isEqual(newSettings.current, settings) ? (
     <Layout classes={{ root: classes.root }} {...props} />

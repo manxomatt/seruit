@@ -19,7 +19,7 @@ function NavbarLayout2(props) {
     <div className={clsx('w-full shadow-md', classes.root, props.className)}>
       <div
         className={clsx(
-          'flex flex-auto justify-between items-center w-full h-full container p-0 lg:px-24 z-20'
+          'flex flex-auto justify-between items-center w-full h-full container p-0 lg:px-24 z-20',
         )}
       >
         <div className="flex flex-shrink-0 items-center px-8">

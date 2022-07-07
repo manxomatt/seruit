@@ -32,7 +32,13 @@ function NavbarMobileLayout2(props) {
   const theme = useTheme();
 
   return (
-    <div className={clsx('flex flex-col h-full overflow-hidden', classes.root, props.className)}>
+    <div
+      className={clsx(
+        'flex flex-col h-full overflow-hidden',
+        classes.root,
+        props.className,
+      )}
+    >
       <AppBar
         color="primary"
         position="static"
@@ -48,7 +54,9 @@ function NavbarMobileLayout2(props) {
 
         <Hidden lgUp>
           <NavbarToggleButton className="w-40 h-40 p-0">
-            <Icon>{theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}"</Icon>
+            <Icon>
+              {theme.direction === 'ltr' ? 'arrow_back' : 'arrow_forward'}"
+            </Icon>
           </NavbarToggleButton>
         </Hidden>
       </AppBar>

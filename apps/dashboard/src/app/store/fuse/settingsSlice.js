@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createTheme } from '@material-ui/core/styles';
 import { getContrastRatio } from '@material-ui/core/styles/colorManipulator';
 import { createSlice, createSelector } from '@reduxjs/toolkit';

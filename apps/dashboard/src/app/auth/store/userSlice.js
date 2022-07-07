@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // eslint import/no-extraneous-dependencies: off */
 import { createSlice } from '@reduxjs/toolkit';
 //import firebase from 'firebase/app'

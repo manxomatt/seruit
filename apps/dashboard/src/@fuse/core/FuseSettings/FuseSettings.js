@@ -99,7 +99,7 @@ function FuseSettings(props) {
         _.set(
           newSettings,
           'layout.config',
-          FuseLayoutConfigs[newSettings?.layout?.style]?.defaults
+          FuseLayoutConfigs[newSettings?.layout?.style]?.defaults,
         );
       }
       handleUpdate(newSettings);
@@ -133,7 +133,10 @@ function FuseSettings(props) {
         {Object.entries(themes)
           .filter(
             ([key, val]) =>
-              !(name === 'theme.main' && (key === 'mainThemeDark' || key === 'mainThemeLight'))
+              !(
+                name === 'theme.main' &&
+                (key === 'mainThemeDark' || key === 'mainThemeLight')
+              ),
           )
           .map(([key, val]) => (
             <MenuItem
@@ -144,7 +147,9 @@ function FuseSettings(props) {
                 backgroundColor: val.palette.background.default,
                 color: val.palette.type === 'light' ? '#000000' : '#FFFFFF',
                 border: `1px solid ${
-                  val.palette.type === 'light' ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)'
+                  val.palette.type === 'light'
+                    ? 'rgba(0, 0, 0, 0.12)'
+                    : 'rgba(255, 255, 255, 0.12)'
                 }`,
               }}
             >
@@ -206,7 +211,10 @@ function FuseSettings(props) {
                 name={target}
                 control={control}
                 render={({ field }) => (
-                  <FormControl component="fieldset" className={classes.formControl}>
+                  <FormControl
+                    component="fieldset"
+                    className={classes.formControl}
+                  >
                     <FormLabel component="legend" className="text-14">
                       {formControl.title}
                     </FormLabel>
@@ -237,7 +245,10 @@ function FuseSettings(props) {
                 name={target}
                 control={control}
                 render={({ field: { onChange, value } }) => (
-                  <FormControl component="fieldset" className={classes.formControl}>
+                  <FormControl
+                    component="fieldset"
+                    className={classes.formControl}
+                  >
                     <FormLabel component="legend" className="text-14">
                       {formControl.title}
                     </FormLabel>
@@ -275,7 +286,10 @@ function FuseSettings(props) {
           case 'group': {
             return (
               <div key={target} className={classes.formGroup}>
-                <Typography className={classes.formGroupTitle} color="textSecondary">
+                <Typography
+                  className={classes.formGroupTitle}
+                  color="textSecondary"
+                >
                   {formControl.title}
                 </Typography>
 
@@ -288,7 +302,13 @@ function FuseSettings(props) {
           }
         }
       }),
-    [classes.formControl, classes.formGroup, classes.formGroupTitle, classes.group, control]
+    [
+      classes.formControl,
+      classes.formGroup,
+      classes.formGroupTitle,
+      classes.group,
+      control,
+    ],
   );
 
   return (
@@ -306,7 +326,11 @@ function FuseSettings(props) {
               <FormLabel component="legend" className="text-14">
                 Style
               </FormLabel>
-              <RadioGroup {...field} aria-label="Layout Style" className={classes.group}>
+              <RadioGroup
+                {...field}
+                aria-label="Layout Style"
+                className={classes.group}
+              >
                 {Object.entries(FuseLayoutConfigs).map(([key, layout]) => (
                   <FormControlLabel
                     key={key}
@@ -320,7 +344,10 @@ function FuseSettings(props) {
           )}
         />
 
-        {useMemo(() => getForm(formConfigs, 'layout.config'), [formConfigs, getForm])}
+        {useMemo(
+          () => getForm(formConfigs, 'layout.config'),
+          [formConfigs, getForm],
+        )}
 
         <Typography className="my-16 text-12 italic" color="textSecondary">
           *Not all option combinations are available
@@ -340,7 +367,11 @@ function FuseSettings(props) {
               <FormLabel component="legend" className="text-14">
                 Main
               </FormLabel>
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.main" />
+              <ThemeSelect
+                value={value}
+                handleThemeChange={onChange}
+                name="theme.main"
+              />
             </FormControl>
           )}
         />
@@ -354,7 +385,11 @@ function FuseSettings(props) {
                 Navbar
               </FormLabel>
 
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.navbar" />
+              <ThemeSelect
+                value={value}
+                handleThemeChange={onChange}
+                name="theme.navbar"
+              />
             </FormControl>
           )}
         />
@@ -368,7 +403,11 @@ function FuseSettings(props) {
                 Toolbar
               </FormLabel>
 
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.toolbar" />
+              <ThemeSelect
+                value={value}
+                handleThemeChange={onChange}
+                name="theme.toolbar"
+              />
             </FormControl>
           )}
         />
@@ -381,7 +420,11 @@ function FuseSettings(props) {
               <FormLabel component="legend" className="text-14">
                 Footer
               </FormLabel>
-              <ThemeSelect value={value} handleThemeChange={onChange} name="theme.footer" />
+              <ThemeSelect
+                value={value}
+                handleThemeChange={onChange}
+                name="theme.footer"
+              />
             </FormControl>
           )}
         />
@@ -412,9 +455,24 @@ function FuseSettings(props) {
             <FormLabel component="legend" className="text-14">
               Direction
             </FormLabel>
-            <RadioGroup {...field} aria-label="Layout Direction" className={classes.group} row>
-              <FormControlLabel key="rtl" value="rtl" control={<Radio />} label="RTL" />
-              <FormControlLabel key="ltr" value="ltr" control={<Radio />} label="LTR" />
+            <RadioGroup
+              {...field}
+              aria-label="Layout Direction"
+              className={classes.group}
+              row
+            >
+              <FormControlLabel
+                key="rtl"
+                value="rtl"
+                control={<Radio />}
+                label="RTL"
+              />
+              <FormControlLabel
+                key="ltr"
+                value="ltr"
+                control={<Radio />}
+                label="LTR"
+              />
             </RadioGroup>
           </FormControl>
         )}

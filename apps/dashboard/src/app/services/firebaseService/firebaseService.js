@@ -28,6 +28,7 @@ class FirebaseService {
     if (!firebase.apps.length) {
       return false;
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return new Promise((resolve, reject) => {
       this.db
         .ref(`users/${userId}`)

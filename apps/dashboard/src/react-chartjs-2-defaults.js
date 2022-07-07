@@ -1,7 +1,7 @@
 import { Chart } from 'react-chartjs-2';
 
 Chart.pluginService.register({
-  afterDatasetsDraw(chart, easing) {
+  afterDatasetsDraw(chart) {
     // Only activate the plugin if it's made available
     // in the options
     if (
