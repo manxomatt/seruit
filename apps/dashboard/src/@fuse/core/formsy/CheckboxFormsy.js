@@ -40,7 +40,12 @@ function CheckboxFormsy(props) {
     >
       <FormControlLabel
         control={
-          <Checkbox {...importedProps} type="checkbox" checked={value} onChange={changeValue} />
+          <Checkbox
+            {...importedProps}
+            type="checkbox"
+            checked={value}
+            onChange={changeValue}
+          />
         }
         label={props.label}
       />

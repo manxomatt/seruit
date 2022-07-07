@@ -7,10 +7,13 @@ class Auth0Service {
   sdk = { auth0Manage: null };
 
   init(success) {
-    if (Object.entries(AUTH_CONFIG).length === 0 && AUTH_CONFIG.constructor === Object) {
+    if (
+      Object.entries(AUTH_CONFIG).length === 0 &&
+      AUTH_CONFIG.constructor === Object
+    ) {
       if (process.env.NODE_ENV === 'development') {
         console.warn(
-          'Missing Auth0 configuration at src/app/services/auth0Service/auth0ServiceConfig.js'
+          'Missing Auth0 configuration at src/app/services/auth0Service/auth0ServiceConfig.js',
         );
       }
       success(false);
@@ -66,7 +69,9 @@ class Auth0Service {
     this.lock.on('authenticated', this.setSession);
     // Add a callback for Lock's `authorization_error` event
     this.lock.on('authorization_error', (err) => {
-      console.warn(`Error: ${err.error}. Check the console for further details.`);
+      console.warn(
+        `Error: ${err.error}. Check the console for further details.`,
+      );
     });
 
     return true;
@@ -82,7 +87,9 @@ class Auth0Service {
   setSession = (authResult) => {
     if (authResult && authResult.accessToken && authResult.idToken) {
       // Set the time that the access token will expire at
-      const expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+      const expiresAt = JSON.stringify(
+        authResult.expiresIn * 1000 + new Date().getTime(),
+      );
       localStorage.setItem('access_token', authResult.accessToken);
       localStorage.setItem('id_token', authResult.idToken);
       localStorage.setItem('expires_at', expiresAt);

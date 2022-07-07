@@ -30,7 +30,11 @@ function ToolbarLayout1(props) {
     <ThemeProvider theme={toolbarTheme}>
       <AppBar
         id="fuse-toolbar"
-        className={clsx(classes.root, 'flex relative z-20 shadow-md', props.className)}
+        className={clsx(
+          classes.root,
+          'flex relative z-20 shadow-md',
+          props.className,
+        )}
         color="default"
         style={{ backgroundColor: toolbarTheme.palette.background.paper }}
         position="static"
@@ -78,7 +82,9 @@ function ToolbarLayout1(props) {
           {config.navbar.display && config.navbar.position === 'right' && (
             <>
               <Hidden mdDown>
-                {!navbar.open && <NavbarToggleButton className="w-40 h-40 p-0 mx-0" />}
+                {!navbar.open && (
+                  <NavbarToggleButton className="w-40 h-40 p-0 mx-0" />
+                )}
               </Hidden>
 
               <Hidden lgUp>

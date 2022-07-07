@@ -31,12 +31,18 @@ const WYSIWYGEditor = forwardRef((props, ref) => {
   function onEditorStateChange(_editorState) {
     setEditorState(_editorState);
 
-    return props.onChange(draftToHtml(convertToRaw(_editorState.getCurrentContent())));
+    return props.onChange(
+      draftToHtml(convertToRaw(_editorState.getCurrentContent())),
+    );
   }
 
   return (
     <div
-      className={clsx(classes.root, 'rounded-4 border-1 overflow-hidden w-full', props.className)}
+      className={clsx(
+        classes.root,
+        'rounded-4 border-1 overflow-hidden w-full',
+        props.className,
+      )}
       ref={ref}
     >
       <Editor

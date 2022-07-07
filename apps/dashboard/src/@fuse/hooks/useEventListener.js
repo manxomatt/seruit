@@ -35,7 +35,7 @@ function useEventListener(eventName, handler, element = window) {
         element.removeEventListener(eventName, eventListener);
       };
     },
-    [eventName, element] // Re-run if eventName or element changes
+    [eventName, element], // Re-run if eventName or element changes
   );
 }
 

@@ -6,7 +6,9 @@ import clsx from 'clsx';
 
 function FusePageSimpleSidebarContent(props) {
   const theme = useTheme();
-  const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
+  const contrastTheme = useSelector(
+    selectContrastMainTheme(theme.palette.primary.main),
+  );
 
   const { classes } = props;
 
@@ -18,7 +20,7 @@ function FusePageSimpleSidebarContent(props) {
             className={clsx(
               classes.sidebarHeader,
               props.variant,
-              props.sidebarInner && classes.sidebarHeaderInnerSidebar
+              props.sidebarInner && classes.sidebarHeaderInnerSidebar,
             )}
           >
             {props.header}
@@ -26,7 +28,9 @@ function FusePageSimpleSidebarContent(props) {
         </ThemeProvider>
       )}
 
-      {props.content && <div className={classes.sidebarContent}>{props.content}</div>}
+      {props.content && (
+        <div className={classes.sidebarContent}>{props.content}</div>
+      )}
     </FuseScrollbars>
   );
 }

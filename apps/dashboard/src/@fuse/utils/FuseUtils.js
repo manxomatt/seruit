@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-this-alias */
 // eslint-disable-next-line max-classes-per-file
 import _ from '@lodash';
 import * as colors from '@material-ui/core/colors';
@@ -33,7 +34,7 @@ class EventEmitter {
       // eslint-disable-next-line func-names
       function (fn) {
         fn.apply(this, args);
-      }.bind(this)
+      }.bind(this),
     );
   }
 
@@ -138,7 +139,8 @@ class FuseUtils {
     let routes = [...config.routes];
 
     routes = routes.map((route) => {
-      let auth = config.auth || config.auth === null ? config.auth : defaultAuth || null;
+      let auth =
+        config.auth || config.auth === null ? config.auth : defaultAuth || null;
       auth = route.auth || route.auth === null ? route.auth : auth;
       const settings = _.merge({}, config.settings, route.settings);
 
@@ -226,7 +228,8 @@ class FuseUtils {
       'orange',
       'deepOrange',
     ];
-    const randomColor = mainColors[Math.floor(Math.random() * mainColors.length)];
+    const randomColor =
+      mainColors[Math.floor(Math.random() * mainColors.length)];
     return colors[randomColor][hue];
   }
 
@@ -235,7 +238,9 @@ class FuseUtils {
       return _.transform(_object, (result, value, key) => {
         if (!_.isEqual(value, _base[key])) {
           result[key] =
-            _.isObject(value) && _.isObject(_base[key]) ? changes(value, _base[key]) : value;
+            _.isObject(value) && _.isObject(_base[key])
+              ? changes(value, _base[key])
+              : value;
         }
       });
     }

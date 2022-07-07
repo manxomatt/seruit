@@ -37,7 +37,9 @@ function SelectFormsy(props) {
   function input() {
     switch (importedProps.variant) {
       case 'outlined':
-        return <OutlinedInput labelWidth={props.label.length * 8} id={props.name} />;
+        return (
+          <OutlinedInput labelWidth={props.label.length * 8} id={props.name} />
+        );
       case 'filled':
         return <FilledInput id={props.name} />;
       default:
@@ -58,8 +60,15 @@ function SelectFormsy(props) {
       className={props.className}
       variant={importedProps.variant}
     >
-      {props.label && <InputLabel htmlFor={props.name}>{props.label}</InputLabel>}
-      <Select {...importedProps} value={value} onChange={changeValue} input={input()} />
+      {props.label && (
+        <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
+      )}
+      <Select
+        {...importedProps}
+        value={value}
+        onChange={changeValue}
+        input={input()}
+      />
       {Boolean(errorMessage) && <FormHelperText>{errorMessage}</FormHelperText>}
     </FormControl>
   );

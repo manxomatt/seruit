@@ -9,7 +9,7 @@ const useUpdateEffect = (effect, deps) => {
           isInitialMount.current = false;
         }
       : effect,
-    deps
+    deps,
   );
 };
 

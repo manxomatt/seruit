@@ -121,14 +121,14 @@ const FuseScrollbars = forwardRef((props, ref) => {
           scrollToTop();
         }
       }),
-    [scrollToTop, props.history, props.scrollToTopOnRouteChange]
+    [scrollToTop, props.history, props.scrollToTopOnRouteChange],
   );
 
   useEffect(
     () => () => {
       destroyPs();
     },
-    [destroyPs]
+    [destroyPs],
   );
 
   // console.info('render::ps');
@@ -194,5 +194,5 @@ FuseScrollbars.defaultProps = {
 };
 
 export default connect(mapStateToProps, null, null, { forwardRef: true })(
-  withRouterAndRef(FuseScrollbars)
+  withRouterAndRef(FuseScrollbars),
 );

@@ -24,6 +24,7 @@ function FusePageSimpleSidebar(props, ref) {
           variant="temporary"
           anchor={props.position}
           open={isOpen}
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           onOpen={(ev) => {}}
           onClose={(ev) => handleToggleDrawer()}
           disableSwipeToOpen
@@ -32,7 +33,9 @@ function FusePageSimpleSidebar(props, ref) {
             paper: clsx(
               classes.sidebar,
               props.variant,
-              props.position === 'left' ? classes.leftSidebar : classes.rightSidebar
+              props.position === 'left'
+                ? classes.leftSidebar
+                : classes.rightSidebar,
             ),
           }}
           ModalProps={{
@@ -59,7 +62,9 @@ function FusePageSimpleSidebar(props, ref) {
               paper: clsx(
                 classes.sidebar,
                 props.variant,
-                props.position === 'left' ? classes.leftSidebar : classes.rightSidebar
+                props.position === 'left'
+                  ? classes.leftSidebar
+                  : classes.rightSidebar,
               ),
             }}
           >

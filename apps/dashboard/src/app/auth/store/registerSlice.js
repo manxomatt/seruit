@@ -24,7 +24,9 @@ export const submitRegister =
 
 export const registerWithFirebase = (model) => async (dispatch) => {
   if (!firebaseService.auth) {
-    console.warn("Firebase Service didn't initialize, check your configuration");
+    console.warn(
+      "Firebase Service didn't initialize, check your configuration",
+    );
 
     return () => false;
   }
@@ -38,7 +40,7 @@ export const registerWithFirebase = (model) => async (dispatch) => {
           ...response.user,
           displayName,
           email,
-        })
+        }),
       );
 
       return dispatch(registerSuccess());
@@ -50,7 +52,10 @@ export const registerWithFirebase = (model) => async (dispatch) => {
         'auth/user-disabled',
       ];
 
-      const emailErrorCodes = ['auth/email-already-in-use', 'auth/invalid-email'];
+      const emailErrorCodes = [
+        'auth/email-already-in-use',
+        'auth/invalid-email',
+      ];
 
       const passwordErrorCodes = ['auth/weak-password', 'auth/wrong-password'];
 

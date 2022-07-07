@@ -19,7 +19,9 @@ export const defaultSettings = {
 };
 
 export function getParsedQuerySettings() {
-  const parsedQueryString = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+  const parsedQueryString = qs.parse(window.location.search, {
+    ignoreQueryPrefix: true,
+  });
 
   if (parsedQueryString && parsedQueryString.defaultSettings) {
     return JSON.parse(parsedQueryString.defaultSettings);
@@ -38,7 +40,13 @@ export function getParsedQuerySettings() {
  */
 export const defaultThemeOptions = {
   typography: {
-    fontFamily: ['Poppins', 'Roboto', '"Helvetica"', 'Arial', 'sans-serif'].join(','),
+    fontFamily: [
+      'Poppins',
+      'Roboto',
+      '"Helvetica"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,

@@ -24,7 +24,9 @@ function NavbarWrapperLayout1(props) {
         </>
       </ThemeProvider>
 
-      {config.navbar.display && !config.toolbar.display && !navbar.open && <NavbarToggleFab />}
+      {config.navbar.display && !config.toolbar.display && !navbar.open && (
+        <NavbarToggleFab />
+      )}
     </>
   );
 }

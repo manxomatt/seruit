@@ -49,16 +49,20 @@ function FuseChipSelectFormsy(props) {
         props.className,
         'z-10',
         props.showRequired ? 'required' : '',
-        props.showError ? 'error' : null
+        props.showError ? 'error' : null,
       )}
       variant={importedProps.variant}
     >
-      {props.label && <InputLabel htmlFor={props.name}>{props.label}</InputLabel>}
+      {props.label && (
+        <InputLabel htmlFor={props.name}>{props.label}</InputLabel>
+      )}
       <FuseChipSelect
         {...importedProps}
         value={value}
         onChange={changeValue}
-        error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
+        error={Boolean(
+          (!props.isPristine && props.showRequired) || errorMessage,
+        )}
       />
       {Boolean(errorMessage) && <FormHelperText>{errorMessage}</FormHelperText>}
     </FormControl>

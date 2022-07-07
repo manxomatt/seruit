@@ -23,7 +23,9 @@ export const submitLoginWithFireBase =
   ({ email, password }) =>
   async (dispatch) => {
     if (!firebaseService.auth) {
-      console.warn("Firebase Service didn't initialize, check your configuration");
+      console.warn(
+        "Firebase Service didn't initialize, check your configuration",
+      );
 
       return () => false;
     }
@@ -40,7 +42,10 @@ export const submitLoginWithFireBase =
           'auth/user-not-found',
           'auth/user-disabled',
         ];
-        const passwordErrorCodes = ['auth/weak-password', 'auth/wrong-password'];
+        const passwordErrorCodes = [
+          'auth/weak-password',
+          'auth/wrong-password',
+        ];
         const response = [];
 
         if (emailErrorCodes.includes(error.code)) {

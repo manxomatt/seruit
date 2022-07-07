@@ -7,12 +7,12 @@ import deepEqual from 'lodash/isEqual';
 function checkDeps(deps) {
   if (!deps || !deps.length) {
     throw new Error(
-      'useDeepCompareEffect should not be used with no dependencies. Use React.useEffect instead.'
+      'useDeepCompareEffect should not be used with no dependencies. Use React.useEffect instead.',
     );
   }
   if (deps.every(isPrimitive)) {
     throw new Error(
-      'useDeepCompareEffect should not be used with dependencies that are all primitive values. Use React.useEffect instead.'
+      'useDeepCompareEffect should not be used with dependencies that are all primitive values. Use React.useEffect instead.',
     );
   }
 }
