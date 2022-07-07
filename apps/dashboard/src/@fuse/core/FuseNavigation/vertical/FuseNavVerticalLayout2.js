@@ -33,7 +33,6 @@ function FuseNavVerticalLayout2(props) {
   const classes = useStyles(props);
   const {
     navigation,
-    layout,
     active,
     dense,
     className,
@@ -41,7 +40,6 @@ function FuseNavVerticalLayout2(props) {
     firstLevel,
     selectedId,
   } = props;
-  const theme = useTheme();
 
   function handleItemClick(item) {
     onItemClick?.(item);

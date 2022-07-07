@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { useDebounce } from '@fuse/hooks';
 import Grow from '@material-ui/core/Grow';

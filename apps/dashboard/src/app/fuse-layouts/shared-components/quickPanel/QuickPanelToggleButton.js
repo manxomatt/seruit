@@ -9,6 +9,7 @@ function QuickPanelToggleButton(props) {
   return (
     <IconButton
       className="w-40 h-40"
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       onClick={(ev) => dispatch(toggleQuickPanel())}
     >
       {props.children}

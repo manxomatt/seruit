@@ -5,8 +5,6 @@ import { alpha } from '@material-ui/core/styles/colorManipulator';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import FuseNavItem from '../../FuseNavItem';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,10 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FuseNavVerticalGroup(props) {
-  const dispatch = useDispatch();
-
   const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   const { item, nestedLevel, onItemClick } = props;
   const classes = useStyles({
     itemPadding: nestedLevel > 0 ? 28 + nestedLevel * 16 : 12,

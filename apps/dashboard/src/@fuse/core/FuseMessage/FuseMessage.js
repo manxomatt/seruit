@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { amber, blue, green } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';

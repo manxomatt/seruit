@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import { Tooltip } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';

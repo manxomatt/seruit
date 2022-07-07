@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 function FuseNavHorizontalLayout1(props) {
   const classes = useStyles(props);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { navigation, layout, active, dense, className } = props;
 
   return (

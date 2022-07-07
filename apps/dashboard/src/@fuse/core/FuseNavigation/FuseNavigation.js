@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function FuseNavigation(props) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const classes = useStyles(props);
   const options = _.pick(props, [
     'navigation',
