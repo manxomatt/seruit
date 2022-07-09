@@ -1,8 +1,10 @@
+import { RedisModule } from '@nestjs-modules/ioredis';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { Fireo } from 'fireo';
+
 import { AuthModule } from './auth/auth.module';
 import { UsersController } from './users.controller';
 import { UserResolver } from './users.resolver';
@@ -15,6 +17,12 @@ import { UsersService } from './users.service';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
+    }),
+    RedisModule.forRoot({
+      config: {
+        host: 'localhost',
+        port: 6379,
+      },
     }),
   ],
   controllers: [UsersController],
