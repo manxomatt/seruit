@@ -14,9 +14,12 @@ describe('UsersController', () => {
     usersController = app.get<UsersController>(UsersController);
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(usersController.getHello()).toBe('Hello World!');
+  describe('findAll', () => {
+    it('should return an Array Of users', async () => {
+      const result = ['test'];
+
+      expect(await usersController.getAll()).toBe(result);
+      // expect(usersController.getHello()).toBe('Hello World!');
     });
   });
 });

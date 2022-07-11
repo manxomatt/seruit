@@ -12,15 +12,19 @@ import {
   Request,
 } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
-import { BaseResponseDto } from 'src/common/base-response.dto';
-import { ResponseCode, UserRole, UserStatus } from 'src/common/Constants';
+import { BaseResponseDto } from '../../../src/common/base-response.dto';
+import {
+  ResponseCode,
+  UserRole,
+  UserStatus,
+} from '../../../src/common/Constants';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
 import { UserEntity } from './user.entity';
 import { UsersType, UserType } from './user.type';
 import { UsersService } from './users.service';
 import * as bcrypt from 'bcrypt';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { JwtAuthGuard } from 'src/common/auth.guard';
+import { JwtAuthGuard } from '../../../src/common/auth.guard';
 
 @Controller()
 export class UsersController {

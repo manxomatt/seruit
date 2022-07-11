@@ -10,12 +10,14 @@ import {
 } from './dto/blog.type';
 import { BlogEntity } from './dto/blog.entity';
 import { CategoriesService } from '../categories/categories.service';
+import { BlogCommentsService } from '../comments/comments.service';
 
 @Resolver()
 export class BlogResolver {
   constructor(
     private blogsService: BlogsService,
     private categoriesService: CategoriesService,
+    private commentsService: BlogCommentsService,
   ) {}
 
   @Query(() => BlogsResultType)
@@ -50,6 +52,10 @@ export class BlogResolver {
 
     const category = await this.categoriesService.findByUuid(blog.category_id);
     blog.category = category;
+
+    const comments = await this.commentsService.listComment(blog.uuid);
+    blog.comments = comments;
+
     return BaseResultType.successResult({
       result: blog,
       message: 'Blog Found',

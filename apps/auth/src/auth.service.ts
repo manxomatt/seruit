@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { UserEntity } from 'apps/users/src/user.entity';
 import { lastValueFrom, map } from 'rxjs';
-import { patterns } from 'src/common/patterns';
+import { patterns } from '../../../src/common/patterns';
 
 @Injectable()
 export class AuthService {

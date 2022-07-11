@@ -1,5 +1,6 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { BlogCategoryEntity } from '../../categories/dto/category.entity';
+import { BlogCommentEntity } from '../../comments/dto/comment.entity';
 
 @ObjectType()
 export class BlogEntity {
@@ -32,6 +33,9 @@ export class BlogEntity {
 
   @Field()
   status: string;
+
+  @Field(() => [BlogCommentEntity], { nullable: true })
+  comments: BlogCommentEntity[];
 
   created_at?: Date;
   updated_at?: Date;

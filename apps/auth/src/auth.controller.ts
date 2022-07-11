@@ -1,16 +1,14 @@
 import {
   Body,
-  ConflictException,
   Controller,
   Get,
   HttpException,
   HttpStatus,
   Post,
 } from '@nestjs/common';
-import { RpcException } from '@nestjs/microservices';
-import { BaseResponseDto } from 'src/common/base-response.dto';
-import { ResponseCode } from 'src/common/Constants';
-import { AuthHelper } from 'src/helpers/auth.helper';
+import { BaseResponseDto } from '../../../src/common/base-response.dto';
+import { ResponseCode } from '../../../src/common/Constants';
+import { AuthHelper } from '../../../src/helpers/auth.helper';
 import { authDto } from './auth.dto';
 import { AuthService } from './auth.service';
 import { AuthType } from './auth.type';

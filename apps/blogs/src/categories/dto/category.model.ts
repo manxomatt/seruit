@@ -1,5 +1,5 @@
 import { Field, Model } from 'fireo';
-import { DeletedDate } from 'src/common/Fields';
+import { DeletedDate } from '../../../../../src/common/Fields';
 
 export class BlogCategory extends Model {
   uuid = Field.Text({ required: true });

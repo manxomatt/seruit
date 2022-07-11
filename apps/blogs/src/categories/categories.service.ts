@@ -14,10 +14,10 @@ export class CategoriesService {
   }
 
   async update(
-    blogCategotyEntity: BlogCategoryEntity,
+    blogCategoryEntity: BlogCategoryEntity,
   ): Promise<BlogCategoryEntity> {
-    const category = BlogCategory.fromObject(blogCategotyEntity);
-    await category.update({ id: blogCategotyEntity['id'] });
+    const category = BlogCategory.fromObject(blogCategoryEntity);
+    await category.update({ id: blogCategoryEntity['id'] });
     return new BlogCategoryEntity(category.toObject());
   }
 

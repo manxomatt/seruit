@@ -12,7 +12,7 @@ import { UserEntity } from 'apps/users/src/user.entity';
 import * as bcrypt from 'bcrypt';
 import { User } from 'apps/users/src/user.model';
 import { ClientProxy } from '@nestjs/microservices';
-import { patterns } from 'src/common/patterns';
+import { patterns } from '../common/patterns';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
